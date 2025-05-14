@@ -1,0 +1,58 @@
+package Service;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		// TODO Auto-generated method stub
+		int opc = 0;
+		int num1 = 0;
+		int num2 = 0;
+		boolean comando = false;
+		
+		while (comando == false) {
+			
+			System.out.println("\n=========MENÚ=========\n");
+			
+			System.out.println("1-PRIMER EJERCICIO\n2-SALIDA");
+			opc = scan.nextInt();
+			
+
+			switch(opc) {
+			
+			case 1:{
+				
+				System.out.println("\nIngrese el primer valor");
+				num1 = scan.nextInt();
+				System.out.println("\nIngrese el segundo valor");
+				num2 = scan.nextInt();
+				
+				System.out.println("El resultado es: " + mostrarinfo(num1, num2));
+				
+				
+				
+				break;
+			}
+			case 2:{
+				System.out.println("\nSALIENDO");
+				comando = true;
+				break;
+			
+			}
+			
+			default:{
+				System.out.println("INGRESE UNA OPCIÓN DISPONIBLE");
+			}
+			}
+			
+		}
+	
+		
+	}
+
+public static int mostrarinfo(int num1, int num2) {
+			return (num1 *5) + (num2 + 10);
+		}
+}
