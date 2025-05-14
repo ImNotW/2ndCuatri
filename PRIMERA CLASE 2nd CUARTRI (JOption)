@@ -1,0 +1,110 @@
+package Service;
+
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		// TODO Auto-generated method stub
+		int opc = 0;
+		int num1 = 0;
+		int num2 = 0;
+		boolean comando = false;
+		
+		while (comando == false) {
+		
+			
+			
+			System.out.println("\n=========MENÚ=========\n");
+			
+			System.out.println("1-PRIMER EJERCICIO\n2-SALIDA\n3-Ejercicio de JO\n4-Ejercicio FIN\n5-Operaciones");
+			opc = scan.nextInt();
+			
+
+			switch(opc) {
+			
+			case 1:{
+				
+				System.out.println("\nIngrese el primer valor");
+				num1 = scan.nextInt();
+				System.out.println("\nIngrese el segundo valor");
+				num2 = scan.nextInt();
+				
+				System.out.println("El resultado es: " + mostrarinfo(num1, num2));
+				
+				
+				
+				break;
+			}
+			case 2:{
+				System.out.println("\nSALIENDO");
+				comando = true;
+				break;
+			
+			}
+			case 3:{
+				
+				String nombre = JOptionPane.showInputDialog("Digite su nombre completo");
+				JOptionPane.showMessageDialog(null, "Su nombre digitado es: " + nombre);
+				int edad = Integer.parseInt(JOptionPane.showInputDialog("Digite su edad"));
+				JOptionPane.showMessageDialog(null, "Su edad digitada es: " + edad);
+				
+				
+				int num = Integer.parseInt(JOptionPane.showInputDialog("Digite el número deseado"));
+				
+			
+			do {
+				System.out.println("\n");
+					for (int j = 1; j <= num; j++) {
+						double resultado = (num/j);
+						System.out.println(j+" / "+num + " = " + resultado);
+					}
+				
+			}while (num <=0);
+			
+			break;
+									
+			}
+			case 4:{
+				String palabra = JOptionPane.showInputDialog("Digite la palabra");
+				String deletrear = "";
+				do {
+					for (int j = 0; j < palabra.length(); j++) {
+						deletrear = deletrear + palabra.charAt(j) + " ";
+						
+						JOptionPane.showMessageDialog(null, deletrear);
+					}
+					
+				}while (palabra.equalsIgnoreCase("Fin"));
+				
+			}
+			case 5: {
+				double num3 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el primer valor"));
+				double num4 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el segundo valor"));
+
+				double suma = num3 + num4;
+				double resta = num3 - num4;
+				double multi = num3 * num4;
+				double divi = num3 / num4;
+				double resultado = (suma + resta + multi + divi);
+				JOptionPane.showMessageDialog(null, "Suma: " + suma + "\nResta: " +resta + "\nMultiplicación: " + multi + "\nDivisión: " + divi );
+				JOptionPane.showMessageDialog(null, "\nSuma total: " + resultado);
+				
+			}
+			default:{
+				System.out.println("\nINGRESE UNA OPCIÓN DISPONIBLE");
+			}
+			}
+			
+		}
+	
+		
+	}
+
+public static int mostrarinfo(int num1, int num2) {
+			return (num1 *5) + (num2 + 10);
+		}
+}
