@@ -1,0 +1,119 @@
+package Service;
+
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+/**
+ * Clase 2 del segundo cuatrimestre
+ */
+public class main {
+/**
+ * 
+ * @param args Por defecto se usa java para poder adivinar un número random
+ */
+	public static void main(String[] args) { //Semana 2
+
+		
+		Scanner scan = new Scanner(System.in);
+		
+		
+
+		
+		int opc;
+		System.out.println("\n1-Primer ejercicio \n2-Segundo Ejercicio \n3- \n4- ");
+		opc = scan.nextInt();
+		
+		switch (opc) {
+		
+		
+		case 1:{
+			
+			JOptionPane.showMessageDialog(null, "¿Número par o no?");
+			boolean intentar = false;
+			
+			do {
+				
+				try {
+					
+					int num = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número"));
+					
+					while (intentar == false) {
+					if (num < 0) {
+						JOptionPane.showMessageDialog(null, "Digite de nuevo otro número diferente.\nTiene que ser mayor a cero", "ERROR" , JOptionPane.WARNING_MESSAGE);
+						break;
+					}
+					else {
+						intentar = true;
+					}
+					}
+					
+					if (num %2 == 0) {
+						
+						JOptionPane.showMessageDialog(null, "El número ingresado es par");
+						
+						intentar = true;
+					}else {
+						JOptionPane.showMessageDialog(null, "Vuelva pronto");
+					}
+					
+				}catch(NumberFormatException e) {
+					JOptionPane.showMessageDialog(null,"lo digitado no corresponde a un número entero " + e.getMessage());
+				}
+				
+			}while (intentar = false);
+			
+			
+		
+		}
+		
+		case 2:{
+			
+			boolean adivino = false;
+			do {
+			try {
+			int num1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número máximo"));
+			
+			int randomNum = (int)(Math.random()* num1);
+			
+			int numTry;
+	
+			do {
+			
+				numTry = Integer.parseInt(JOptionPane.showInputDialog("Intente adivinarlo"));
+			
+			
+			if (numTry == randomNum) {
+				JOptionPane.showMessageDialog(null, "Felicidades! adivinó el número");
+				adivino = true;
+				break;
+			}else {
+				JOptionPane.showMessageDialog(null," Intente de nuevo!", "ERROR", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null,"Correcto: " + randomNum);
+				
+
+			}
+			
+			}while (randomNum != numTry);
+			
+			}catch(NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "Ingrese únicamente números por favor", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+			}
+			}while(adivino);
+
+			
+			
+		}
+		
+		case 3:{
+			
+		}
+		
+		case 4:{
+			
+		}
+		
+		
+		}
+		
+	}
+
+}
