@@ -19,7 +19,7 @@ public class main {
 
 		
 		int opc;
-		System.out.println("\n1-Primer ejercicio \n2-Segundo Ejercicio \n3- \n4- ");
+		System.out.println("\n1-Primer ejercicio \n2-Segundo Ejercicio \n3-Ejercicio 3 \n4-Ejercicio 4 ");
 		opc = scan.nextInt();
 		
 		switch (opc) {
@@ -95,7 +95,7 @@ public class main {
 			}while (randomNum != numTry);
 			
 			}catch(NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "Ingrese únicamente números por favor", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ingrese únicamente números por favor", "ADVERTENCIA!😓", JOptionPane.WARNING_MESSAGE);
 			}
 			}while(adivino);
 
@@ -105,10 +105,59 @@ public class main {
 		
 		case 3:{
 			
+			try {
+			double num1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor de A"));
+			double num2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor de B"));
+			
+			double resultado = num1 / num2;
+			
+			JOptionPane.showMessageDialog(null, "El valor de la división de A entre B es: " + resultado);
+			
+			
+			}catch(NumberFormatException e) { // Para que solo permita números
+				JOptionPane.showMessageDialog(null, "Ingrese un valor numérico por favor ", "ERROR", JOptionPane.WARNING_MESSAGE);
+			}catch(ArithmeticException ae) { // Por divir entre 0
+				JOptionPane.showMessageDialog(null, "Por dividir entre cero ", "ERROR", JOptionPane.WARNING_MESSAGE);
+			}catch(Exception ec) { // Por si todo falla
+				JOptionPane.showMessageDialog(null, "Ocurrió un error ", "ERROR", JOptionPane.WARNING_MESSAGE);
+
+			}
+			
+			
+			
+			
+
 		}
 		
 		case 4:{
 			
+			try {
+			int valor = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la catidad de estudiantes"));
+			int vectorEstudiantes[] = new int[valor];
+			
+			int valor2 = Integer.parseInt(JOptionPane.showInputDialog("¿Cuantas notas desea ingresar?"));
+			
+			
+			for (int i = 0; i < valor2; i++) {
+				
+				vectorEstudiantes[i] =  Integer.parseInt(JOptionPane.showInputDialog("Ingrese la calificación: " + (i +1)));
+				
+			}
+			JOptionPane.showMessageDialog(null, "\nA continuación se muestran las calificaciones guardadas", "IMPORTANTE", JOptionPane.WARNING_MESSAGE);
+			for (int j = 0; j < valor2; j++) {
+				
+				JOptionPane.showMessageDialog(null, "\nCalificación número: "+ (j+1) + " = " + vectorEstudiantes[j]);
+			}
+			}catch(ArrayIndexOutOfBoundsException Ai) {
+				JOptionPane.showMessageDialog(null,"Se ha intentado acceder a un espacio del vector que no existe");
+			}
+			catch(NumberFormatException nb) {
+				JOptionPane.showMessageDialog(null,"Tiene que ingresar algún dato numérico");
+			}
+			catch(Exception ex) {
+				JOptionPane.showMessageDialog(null,"Ocurrió un error");
+
+			}
 		}
 		
 		
