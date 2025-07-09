@@ -1,0 +1,129 @@
+package Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+import Models.Producto;
+import Models.Vehiculo;
+public class Main {
+
+	public static void main(String[] args) {
+
+		int opc;
+		List<Producto> listaProducto = new ArrayList<Producto>();
+		Vehiculo vectorVehiculo[] = new Vehiculo[2];
+		
+		
+	try {
+		
+		
+
+	do {
+		
+		opc = Integer.parseInt(JOptionPane.showInputDialog(null, "===============Menú principal=============== \n1-Agregar vehículos \n2-Mostrar vehículos \n3-Agregar productos a una lista \n4-Mostrar productos de la lista \n5-Eliminar productos de la lista \n6-Modificar productos de la lista \n7-Salir "));;
+		
+		Producto producto = new Producto();
+		Vehiculo vehiculo = new Vehiculo();
+		
+	
+		
+		int contador =0 ;
+		
+		
+		switch (opc) {
+		
+		case 1:
+			
+		String nombreModelo = JOptionPane.showInputDialog("Ingrese el nombre del modelo");
+		vehiculo.setModelo(nombreModelo);
+		
+		String anio = JOptionPane.showInputDialog("Ingrese el año del vehiculo");
+		vehiculo.setAnio(anio);
+		
+		int numChasis = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de chasis"));
+		vehiculo.setNumChasis(numChasis);
+		
+		
+		vectorVehiculo[contador] = vehiculo; 
+		contador++;		
+			
+		 break;
+		case 2:
+			JOptionPane.showMessageDialog(null, vehiculo.toString());
+			
+			 break;
+		case 3:	
+			producto = new Producto();
+			String name = JOptionPane.showInputDialog("Ingrese el nombre del producto");
+			producto.setName(name);
+			
+			String tipo = JOptionPane.showInputDialog("Ingrese el tipo del producto");
+			producto.setTipo(tipo);
+			
+			int id = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del producto"));
+			producto.setId(id);
+
+			listaProducto.add(producto);
+			
+			 break;
+		
+		case 4:
+		
+			for (Producto numeroEach : listaProducto) {
+				JOptionPane.showMessageDialog(null, numeroEach.toString());
+				
+			}
+			 break;
+		case 5:
+			
+			int posicionEliminar = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posición"));
+			
+			for (int i = 0; i < listaProducto.size(); i++) {
+				
+				if(i == posicionEliminar) {
+					
+					JOptionPane.showMessageDialog(null, listaProducto.get(posicionEliminar));
+				}
+				
+				
+			}
+			
+			 break;
+		case 6:
+			
+			
+			
+			 break;
+		case 7:
+			
+		JOptionPane.showMessageDialog(null, "CERRANDO");
+			
+			
+		
+		
+		
+		
+		
+		
+		
+		}
+			
+		
+			
+		
+		
+	}while (opc != 7);
+		
+	
+	}catch(NumberFormatException nb){
+		JOptionPane.showMessageDialog(null, "ingrese un valor numérico por favor");
+	}catch(Exception ec) {
+		JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+
+		
+	}
+		
+	}
+
+}
